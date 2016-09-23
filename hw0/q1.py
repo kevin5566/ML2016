@@ -17,4 +17,6 @@ strg=""
 i=len(ans)
 for j in range(0,i):
     strg=strg+str(ans.pop())+","
-print(strg[:-1])
+#print(strg[:-1])
+f=open('ans1.txt','w')
+f.write(strg[:-1])
