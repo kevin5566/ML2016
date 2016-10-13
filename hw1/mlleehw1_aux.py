@@ -97,7 +97,7 @@ def trainGradDes(X,Y,N):
     tmpW=0
     tmpb=0
     i=0
-    lamda=0.00001  #regu
+    #lamda=0.00001  #regu
     
     while True:
         i=i+1
@@ -112,14 +112,14 @@ def trainGradDes(X,Y,N):
             tmpb=tmpb+bgradient[:,[j]]
         tmpW=tmpW.transpose()
         
-        W=W-eta*tmpW-lamda*W
-        #W=W-eta*tmpW
+        #W=W-eta*tmpW-lamda*W
+        W=W-eta*tmpW
         b=b-eta*tmpb[0,0]
         if(i%100==0):
             print('iteration: '+str(i))
             Gradlen=np.linalg.norm(tmpW)
             print(Gradlen)
-            if(Gradlen<0.01):
+            if(Gradlen<200):    #report <0.01
                 break
         tmpW=0
         tmpb=0
