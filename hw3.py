@@ -7,6 +7,7 @@ from keras.utils import np_utils
 import pickle
 import sys
 import theano
+import h5py
 from keras import backend as k
 
 k.set_image_dim_ordering('th')
@@ -65,29 +66,13 @@ y_selflearn=[]
 for i in range(0,45000):
 	if(np.amax(y_predict[i][:])>0.85):
 		x_selflearn.append(x_unlabeldata[i])
-		y_selflearn.append(model.predict_classes(x_unlabeldata[i],batch_size=32))
+		y_selflearn.append(model.predict_classes(x_unlabeldata[i:i+1],batch_size=32))
 y_selflearn=np_utils.to_categorical(y_selflearn,3)
 model.fit(x_selflearn,y_selflearn,batch_size=BATCH_SIZE,nb_epoch=EPOCH)
 
 from keras.models import load_model
 #model.save('model_1.h5')
 model.save(sys.argv[2])
-
-# returns a compiled model
-# identical to the previous one
-# model = load_model('model_1.h5')
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
