@@ -70,7 +70,7 @@ model.fit(x_selflearn,y_selflearn,batch_size=BATCH_SIZE,nb_epoch=EPOCH)
 '''
 from keras.models import load_model
 #model.save('model_2.h5')
-#model.save(sys.argv[2])
+model.save(sys.argv[2])
 
 unlabelraw=pickle.load(open(sys.argv[1]+'/all_unlabel.p','rb'))
 x_unlabeldata=[]
