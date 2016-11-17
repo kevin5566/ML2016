@@ -3,7 +3,7 @@ import numpy as np
 import sys
 import csv
 
-test=pickle.load(open(sys.argv[1]+'/test.p','r'))
+test=pickle.load(open(sys.argv[1]+'test.p','r'))
 ID = test['ID']
 
 file=open(sys.argv[3],'w')
