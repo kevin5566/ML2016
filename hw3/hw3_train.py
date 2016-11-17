@@ -13,7 +13,7 @@ from keras import backend as k
 k.set_image_dim_ordering('th')
 
 #labelraw=pickle.load(open('./data/all_label.p','rb'))
-labelraw=pickle.load(open(sys.argv[1]+'/all_label.p','rb'))
+labelraw=pickle.load(open(sys.argv[1]+'all_label.p','rb'))
 x_labeldata=[]
 y_labeldata=[]
 for i in range(0,10):
@@ -72,7 +72,7 @@ from keras.models import load_model
 #model.save('model_2.h5')
 model.save(sys.argv[2])
 
-unlabelraw=pickle.load(open(sys.argv[1]+'/all_unlabel.p','rb'))
+unlabelraw=pickle.load(open(sys.argv[1]+'all_unlabel.p','rb'))
 x_unlabeldata=[]
 for i in range(0,45000):
 	x_unlabeldata.append(np.reshape(unlabelraw[i],(3,32,32)))
