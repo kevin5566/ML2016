@@ -10,7 +10,7 @@ from keras.models import load_model
 model=load_model(sys.argv[2])
 
 import csv
-test=pickle.load(open(sys.argv[1]+'/test.p','r'))
+test=pickle.load(open(sys.argv[1]+'test.p','r'))
 ID = test['ID']
 X_test = test['data']
 X_test = numpy.asarray(X_test)
